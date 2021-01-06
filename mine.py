@@ -61,7 +61,7 @@ class Block:
         self.depth = parent.depth + 1 if parent else 0
 
 
-timeInterval = 1.0
+timeInterval = 0.01
 miners = []
 
 
