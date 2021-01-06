@@ -1,0 +1,3 @@
+bob 0.0 merchant 5
+alice 0.01 attacker bob
+world 0.05
