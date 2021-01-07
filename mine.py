@@ -67,7 +67,7 @@ miners = []
 
 if len(sys.argv) < 2:
     print("Must specify miner list file in args")
-    exit(0)
+    exit(1)
 
 if len(sys.argv) > 2:
     timeInterval = float(sys.argv[2])
@@ -87,7 +87,19 @@ with open(sys.argv[1], 'r') as minersFile:
         blocksBeforeDelivery = int(minerArgs[3]) if role == "merchant" else None
         miners.append(Miner(name, processingPower, target=target, blocksBeforeDelivery=blocksBeforeDelivery))
 
-while True:
+try:
+    while True:
+        for miner in miners:
+            miner.mine(miners)
+        time.sleep(timeInterval)
+except KeyboardInterrupt:
+    exit(0)
+finally:
+    print("\n\n\nUser blockchains:\n")
     for miner in miners:
-        miner.mine(miners)
-    time.sleep(timeInterval)
+        chainString = ""
+        block = miner.headBlock
+        while block and block.parentUID > 0:
+            chainString += ((block.miner.name if block.miner else "rootblock") + "_" + str(block.uid) + " < ")
+            block = miner.blocks[block.parentUID]
+        print(miner.name + ": " + chainString[:-3] + "\n")

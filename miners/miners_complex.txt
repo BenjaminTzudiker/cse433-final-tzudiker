@@ -1,0 +1,15 @@
+bob 0.0 merchant 2
+dan 0.0 merchant 4
+alice 0.001 attacker bob
+eve 0.001 attacker bob
+chuck 0.001 attacker dan
+world1 0.001
+world2 0.001
+world3 0.001
+world4 0.001
+world5 0.001
+world6 0.001
+world7 0.001
+world8 0.001
+world9 0.001
+world10 0.001
