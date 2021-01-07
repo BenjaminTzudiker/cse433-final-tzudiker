@@ -55,7 +55,7 @@ Each miner has its own line, formatted like so:
 Example miners.txt with attacker posessing 20% of the world's computation power and the merchant needing 5 blocks (the payment block plus the 4 additional blocks) before delivering the product:
 
 ```
-alice 0.01 attacker bob
 bob 0.0 merchant 4
+alice 0.01 attacker bob
 world 0.04
 ```
