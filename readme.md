@@ -1,3 +1,8 @@
+### Intro
+
+The purpose of this project is to simulate bitcoin mining chains and double spend attacks performed by mining blocks to trick a target into thinking they received a payment. The project lets the user specify any arrangement of miners, attackers, and merchants, and lets the user track the blockchain held by each and any tricked product deliveries to the attackers.
+
+
 ### File Structure
 
 * mine.py - Python file for running attack code
@@ -15,8 +20,8 @@
 Make sure you have python installed. Set your command line directory to the project folder.
 
 ```
-cd [path_to_project]
-python3 mine.py miners_text_file_location [iteration_time]
+cd <path_to_project>
+python3 mine.py <miners_text_file_location> [iteration_time]
 ```
 
 For example, to run the miners_trusting example scenario, run mine.py like so:
@@ -37,7 +42,7 @@ The miners text file defines all the cryptocurrency users that will mine blocks 
 
 Each miner has its own line, formatted like so:
 
-name processing_power [role [role_arguments...]]
+<name> <processing_power> [role [role_arguments...]]
 
 * name: The name is a unique string identifier used to track the miner for log and attack/defense purposes
 * processing_power: The chance of a new block being mined every iteration; set to 0 to disable mining altogether
@@ -45,7 +50,7 @@ name processing_power [role [role_arguments...]]
     - attacker: Will attempt to cheat a merchant by sending them fake blocks with fraudulent "temporary" transaction information; takes the name of the target merchant as its only role_argument and must be declared after the merchant in miners text file
     - merchant: Will send a fake product to another miner if the merchant is given money in a transaction; takes the number of additional blocks needed after the payment block before the "product" is delivered as a role_argument
 
-Example miners.txt with attacker posessing 20% of the world's computation power and the merchant needing 5 blocks (the payment block plsu the 4 additional blocks) before delivering the product:
+Example miners.txt with attacker posessing 20% of the world's computation power and the merchant needing 5 blocks (the payment block plus the 4 additional blocks) before delivering the product:
 
 ```
 alice 0.01 attacker bob
