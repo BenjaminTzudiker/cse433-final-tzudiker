@@ -27,7 +27,7 @@ python3 mine.py <miners_text_file_location> [iteration_time]
 For example, to run the miners_trusting example scenario, run mine.py like so:
 
 ```
-cd [path_to_project]
+cd <path_to_project>
 python3 mine.py miners/miners_trusting.txt 0.01
 ```
 
@@ -42,7 +42,9 @@ The miners text file defines all the cryptocurrency users that will mine blocks 
 
 Each miner has its own line, formatted like so:
 
-<name> <processing_power> [role [role_arguments...]]
+```
+<name> <processing_power> [role <role_argument>]
+```
 
 * name: The name is a unique string identifier used to track the miner for log and attack/defense purposes
 * processing_power: The chance of a new block being mined every iteration; set to 0 to disable mining altogether
